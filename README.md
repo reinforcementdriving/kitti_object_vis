@@ -23,13 +23,18 @@ kitti
             velodyne
 ```
 
-## Requrements
+## Requirements
 
-1. mayavi
-2. vtk
+  - opencv
+```
+conda install opencv -c menpo
+```
+  - mayavi, vtk, PIL
 
 ```
-pip install mayavi vtk
+pip install mayavi vtk pillow
+# or
+conda install mayavi vtk pillow
 ```
 
 ## Visualization
@@ -40,7 +45,7 @@ pip install mayavi vtk
 4. LiDar data on Camera image
 
 
-```python
+```shell
 $ python kitti_object.py --help
 usage: kitti_object.py [-h] [-d N] [-i N] [-p] [-s] [-l N] [-e N] [-r N]
                        [--gen_depth] [--vis] [--depth] [--img_fov]
@@ -49,7 +54,7 @@ usage: kitti_object.py [-h] [-d N] [-i N] [-p] [-s] [-l N] [-e N] [-r N]
                        [--show_image_with_boxes]
                        [--show_lidar_topview_with_boxes]
 
-PyTorch Training RPN
+KIITI Object Visualization
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -75,14 +80,15 @@ optional arguments:
                         show lidar
   --show_lidar_topview_with_boxes
                         show lidar topview
+  --split               use training split or testing split (default: training)
 
 ```
 
-```python
+```shell
 $ python kitti_object.py
 ```
 Specific your own folder,
-```python
+```shell
 $ python kitti_object.py -d /path/to/kitti/object
 ```
 
@@ -110,6 +116,8 @@ $ python kitti_object.py --show_lidar_with_depth --img_fov --const_box --vis --p
 
 #### 2D, 3D boxes and LiDar data on Camera image
 <img src="./imgs/rgb.png" alt="2D, 3D boxes LiDar data on Camera image" align="center" />
+<img src="./imgs/lidar-label.png" alt="boxes with class label" align="center" />
+Credit: @yuanzhenxun
 
 #### LiDar birdview and point cloud (3D)
 <img src="./imgs/lidar.png" alt="LiDar point cloud and birdview" align="center" />
